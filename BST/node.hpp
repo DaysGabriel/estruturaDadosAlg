@@ -10,7 +10,7 @@ private:
     Node<myType>* left;
     Node<myType>* right;
 public:
-    Node(myType _info): info(_info), left(nullptr), right(nullptr); 
+    Node(myType _info): info(_info), left(nullptr), right(nullptr){}
 };
 
 #endif
