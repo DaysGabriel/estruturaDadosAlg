@@ -18,6 +18,22 @@ public:
     {
         root = node;
     }
+    void insert(myType info)
+    {
+        root = _insert(info, root);
+    }
+
+private:
+    Node<myType>* _insert(myType info, Node<myType>*node)
+    {
+        if (node == nullptr)
+            node = new Node(info);
+        else if (info > node->info)
+            node->right = _insert(info, node->right);
+        else
+            node->left = _insert(info, node->left);
+        return node;
+    }
 };
 
 #endif
