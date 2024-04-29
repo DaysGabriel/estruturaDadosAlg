@@ -1,5 +1,5 @@
-#ifndef BST_HPP
-#define BST_HPP
+#ifndef NODE_HPP
+#define NODE_HPP
 
 class Node
 {
