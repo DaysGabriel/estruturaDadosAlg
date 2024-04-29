@@ -10,11 +10,11 @@ private:
 public:
     BST(int _info);
     //Various versions of the insert method
-    insert(int _info, Node* &root);
-    insert(int _info, Node** root);
-    insertPrivate(int _info);
+    void insert(int _info, Node* &root);
+    void insert(int _info, Node** root);
+    void insertPrivate(int _info);
 private:
-    _insertPrivate(int _info, Node* root);
+    Node* _insertPrivate(int _info, Node* root);
 };
 
 #endif
