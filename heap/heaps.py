@@ -27,24 +27,26 @@ class MaxHeap:
         _list[index1] = _list[index2]
         _list[index2] = temp
     def __climb(self, indexElem):
-        if indexElem > 1 :
-            if self.array[indexElem] > self.array[indexElem//2]:
-                self.__swap(self.array,indexElem,indexElem//2)
-                self.__climb(indexElem//2)
+        pai = indexElem//2
+        if pai >= 1 :
+            if self.array[indexElem] > self.array[pai]:
+                self.__swap(self.array,indexElem,pai)
+                self.__climb(pai)
 
     def __descend(self, indexElem):
         j = indexElem*2
         if (j < len(self.array)-1) :
             if self.array[j+1] > self.array[j] :
                 j += 1
-            if (self.array[j] > self.array[indexElem]):
-                self.__swap(self.array,indexElem,j)
-                self.__descend(j)
+        if (j <= len(self.array) -1) and (self.array[j] > self.array[indexElem]) :
+            self.__swap(self.array,indexElem,j)
+            self.__descend(j)
+
 
     #O(n)
     def __buildHeap(self, array):
         # for (int i = n/2; i > 0; i--)
-        for i in range(len(self.array)//2, 0, -1):
+        for i in range((len(self.array)-1)//2, 0, -1):
             self.__descend(i)
     #O(n/2)
     def __buildHeap2(self, array):        
@@ -80,23 +82,7 @@ class MaxHeap:
         self.array.clear()
 
 def display(_list):
+    print("[", end="")
     for i in _list:
-        print(i)
-
-myHeap = MaxHeap()
-
-myHeap.insert(2)
-myHeap.insert(3)
-myHeap.insert(4)
-myHeap.insert(5)
-#myHeap.insert(0)
-#myHeap.insert(1)
-
-display(myHeap.array)
-
-print("-=-=-=-=-=-=-=")
-
-myHeap.delete()
-
-myHeap.initList([1,2,3,4,5])
-display(myHeap.array)
+        print(i, end=",")
+    print("]")
