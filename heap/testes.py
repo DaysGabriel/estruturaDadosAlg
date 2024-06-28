@@ -1,5 +1,3 @@
-l
-
 def swap(elem1, elem2):
     temp = elem1
     elem1 = elem2
@@ -16,3 +14,8 @@ print("Lista após o 'swap' simples:",lista)
 
 swapLista(lista, 0, 4)
 print("Lista após o 'swap' próprio da lista:",lista)
+
+lista2 = []
+lista2.append(lista.pop())
+print(lista2)
+print(lista)
